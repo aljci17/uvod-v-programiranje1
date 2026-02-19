@@ -1,0 +1,15 @@
+{
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Python",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-i",
+                "${file}"
+            ],
+        }
+    ]
+}
