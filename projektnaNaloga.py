@@ -11,6 +11,4 @@ def uredi_medalje(wiki_url):
     if odgovor.status_code != 200:
         print("Napaka pri nalaganju strani")
         return
-    juha= BeautifulSoup(odgovor.text, "html.parser")
-    tabela=juha.find("table", {"class": "wikitable"})
-    podatki=[]
+    
