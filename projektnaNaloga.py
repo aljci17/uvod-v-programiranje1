@@ -1,14 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
-if __name__ == "__main__":
-        wiki_url = "https://sl.wikipedia.org/wiki/Svetovni_pokal_v_smu%C4%8Darskih_skokih_2026"
-        print(f"Zajem podatkov s strani: {wiki_url}")
+wiki_url = "https://sl.wikipedia.org/wiki/Svetovni_pokal_v_smučarskih_skokih_2026"
 
-def uredi_medalje(wiki_url):
-    headers={"user-Agent": "Mozilla/5.0"} #preprečimo blokiranje wikipedije
-    odgovor=requests.get(wiki_url, headers=headers)
-    if odgovor.status_code != 200:
-        print("Napaka pri nalaganju strani")
-        return
-    
+headers={"user-Agent": "Mozilla/5.0"} #preprečimo blokiranje wikipedije
+
+print(f"Zajemam stran: {wiki_url}")
+odgovor=requests.get(wiki_url, headers=headers)
+if odgovor.status_code == 200:
+        ime_datoteke="Svetovni_pokal_v_smucarskih_skokih_2026.html"
+        with open(ime_datoteke, "w", encoding="utf-8") as f:
+            f.write(odgovor.text)
+        print(f"Stran je shranjena v datoteko: {ime_datoteke}\n")
+        juha=BeautifulSoup(odgovor.text,"html.parser")
