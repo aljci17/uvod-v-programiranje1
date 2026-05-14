@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from cache import preberi_ali_prenesi
 
-def beri_drzavo_raw(ime):
+def branje_drzavo_raw(ime):
     ime_url = ime.replace(" ", "_")
 
     urls = [

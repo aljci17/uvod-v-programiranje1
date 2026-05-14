@@ -6,10 +6,8 @@ def normaliziraj_drzavo(raw):
 
     d = raw.strip().lower()
 
-    # odstrani oklepaje in vsebino v njih
+    # odstrani oklepaje
     d = re.sub(r"\(.*?\)", "", d)
-
-    # odstrani več presledkov
     d = re.sub(r"\s+", " ", d).strip()
 
     # če je v nizu vejica → zadnji del je država
@@ -45,21 +43,14 @@ def normaliziraj_drzavo(raw):
         "united states": "združene države",
     }
 
-    # najprej direktni match
+    # direktni match
     if d in mapping:
         return mapping[d]
 
-    # nato match po ključnih besedah
+    # match po ključnih besedah
     for key, val in mapping.items():
         if key in d:
             return val
-
-    # če je več besed → zadnja je pogosto država
-    deli = d.split()
-    if len(deli) > 1:
-        zadnja = deli[-1]
-        if zadnja in mapping:
-            return mapping[zadnja]
 
     # fallback
     return d.capitalize()
