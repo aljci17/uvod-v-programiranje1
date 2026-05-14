@@ -43,6 +43,7 @@ for ime, m in zenske.items():
 
 drzave = {}
 
+
 for ime, m in skupno.items():
     drzava = pridobi_drzavo(ime)
 
@@ -52,6 +53,7 @@ for ime, m in skupno.items():
     drzave.setdefault(drzava, [0,0,0,0])
     for i in range(4):
         drzave[drzava][i] += m[i]
+
 
 shrani_csv("skoki_moski.csv", moski)
 shrani_csv("skoki_zenske.csv", zenske)

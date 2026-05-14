@@ -1,8 +1,8 @@
-from requests_html import HTMLSession
+from cache import preberi_ali_prenesi
 from bs4 import BeautifulSoup
 from imena import pocisti_ime, je_pravo_ime
 
-session = HTMLSession()
+
 
 def izloci_medalje_iz_tabele(tabela):
     medalje = {}
@@ -26,12 +26,12 @@ def izloci_medalje_iz_tabele(tabela):
 
 def obdela_slovensko_sezono(leto):
     url = f"https://sl.wikipedia.org/wiki/Svetovni_pokal_v_smu%C4%8Darskih_skokih_{leto}"
-    r = session.get(url)
-
-    if r.status_code != 200:
+    html = preberi_ali_prenesi(url)
+    if not html:
         return None
 
-    juha = BeautifulSoup(r.text, "html.parser")
+
+    juha = BeautifulSoup(html, "html.parser")
 
     moski = {}
     zenske = {}
