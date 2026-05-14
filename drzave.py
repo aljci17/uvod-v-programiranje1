@@ -1,44 +1,84 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-
+import re
+import time
 
 session = HTMLSession()
+
+# -------------------------------
+# NORMALIZACIJA DRŽAV
+# -------------------------------
 
 def normaliziraj_drzavo(drzava):
     if not drzava:
         return "Neznano"
 
-    d = drzava.strip().lower()
-    d = d.replace("(", "").replace(")", "")
+    d = drzava.strip()
 
+    # odstrani vse v oklepajih
+    d = re.sub(r"\(.*?\)", "", d)
+
+    # zamenjaj več presledkov z enim
+    d = re.sub(r"\s+", " ", d)
+
+    d = d.strip().lower()
+
+    # če je v nizu vejica, pogosto zadnji del pomeni državo
+    if "," in d:
+        d = d.split(",")[-1].strip()
+
+    # osnovne zamenjave (ključne besede)
     zamenjave = {
-        "slovenia": "slovenija",
-        "slovene": "slovenija",
-        "slovenska": "slovenija",
+        "sloven": "slovenija",
         "austria": "avstrija",
         "österreich": "avstrija",
-        "germany": "nemčija",
+        "german": "nemčija",
         "deutschland": "nemčija",
         "norway": "norveška",
         "norge": "norveška",
         "japan": "japonska",
-        "usa": "združene države",
-        "united states": "združene države",
+        "poland": "poljska",
+        "finland": "finska",
+        "switzerland": "švica",
+        "sweden": "švedska",
+        "france": "francija",
+        "italy": "italija",
+        "canada": "kanada",
         "czech republic": "češka",
         "czechia": "češka",
+        "estonia": "estonija",
+        "ukraine": "ukrajina",
+        "russia": "rusija",
+        "belarus": "belorusija",
+        "south korea": "južna koreja",
+        "korea": "južna koreja",
+        "usa": "združene države",
+        "united states": "združene države",
     }
 
+    # najprej direktni match
     if d in zamenjave:
         return zamenjave[d]
 
+    # potem po ključnih besedah v nizu
+    for kljuc, cilj in zamenjave.items():
+        if kljuc in d:
+            return cilj
+
+    # če je več besed, poskusi zadnjo
     deli = d.split()
     if len(deli) > 1:
         zadnja = deli[-1]
         if zadnja in zamenjave:
             return zamenjave[zadnja]
 
-    return d.capitalize()
+    # prva črka velika
+    return d.capitalize() if d else "Neznano"
 
+
+# -------------------------------
+# ISKANJE DRŽAVE NA WIKIPEDIJI
+# -------------------------------
 
 def najdi_drzavo(ime):
     ime_url = ime.replace(" ", "_")
@@ -71,24 +111,23 @@ def najdi_drzavo(ime):
                 naslov = glava.get_text().strip().lower()
                 vsebina = vrednost.get_text().strip()
 
-                if "reprezentanca" in naslov:
+                # slovenska wiki
+                if "reprezentanca" in naslov or "država" in naslov:
                     return normaliziraj_drzavo(vsebina)
-                if "država" in naslov:
-                    return normaliziraj_drzavo(vsebina)
+
                 if "rojen" in naslov and "," in vsebina:
-                    return normaliziraj_drzavo(vsebina.split(",")[-1].strip())
+                    return normaliziraj_drzavo(vsebina)
 
-                if "nationality" in naslov:
+                # angleška wiki
+                if "nationality" in naslov or "country" in naslov:
                     return normaliziraj_drzavo(vsebina)
-                if "country" in naslov:
-                    return normaliziraj_drzavo(vsebina)
+
                 if "born" in naslov and "," in vsebina:
-                    return normaliziraj_drzavo(vsebina.split(",")[-1].strip())
+                    return normaliziraj_drzavo(vsebina)
 
+                # klub / ekipa z državo v oklepaju
                 if "club" in naslov or "team" in naslov:
-                    if "(" in vsebina and ")" in vsebina:
-                        drzava = vsebina.split("(")[-1].replace(")", "").strip()
-                        return normaliziraj_drzavo(drzava)
+                    return normaliziraj_drzavo(vsebina)
 
         except:
             continue

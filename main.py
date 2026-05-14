@@ -2,6 +2,7 @@ from ciscenje import obdela_slovensko_sezono
 from drzave import najdi_drzavo
 from csv_delo import shrani_csv
 import time
+import csv
 
 # SEZONE
 vse_sezone = list(range(1980, 2027))
@@ -59,10 +60,13 @@ for ime, m in skupno.items():
     drzava = najdi_drzavo(ime)
     time.sleep(0.3)
 
+    #preskoči vse, kjer je država Neznano
+    if drzava == "Neznano":
+        continue
+
     drzave.setdefault(drzava, [0, 0, 0, 0])
     for i in range(4):
         drzave[drzava][i] += m[i]
-
 
 # SHRANI CSV
 shrani_csv("skoki_moski.csv", moski_vse)
@@ -70,7 +74,6 @@ shrani_csv("skoki_zenske.csv", zenske_vse)
 shrani_csv("skoki_skupno.csv", skupno)
 
 with open("skoki_drzave.csv", "w", encoding="utf-8", newline="") as f:
-    import csv
     w = csv.writer(f)
     w.writerow(["Država", "Zlato", "Srebro", "Bron", "Skupaj"])
     for k, m in sorted(drzave.items(), key=lambda x: x[1][3], reverse=True):
