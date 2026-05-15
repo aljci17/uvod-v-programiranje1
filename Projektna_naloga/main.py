@@ -42,7 +42,7 @@ for ime, m in zenske.items():
         skupno[ime][i] += m[i]
 
 drzave = {}
-tekmovalec_drzava = {}  # NOVO
+tekmovalec_drzava = {}  
 
 for ime, m in skupno.items():
     drzava, drzava_id = pridobi_drzavo(ime)
