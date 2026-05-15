@@ -1,79 +1,79 @@
-Ime,Zlato,Srebro,Bron,Skupaj
-Stefan Kraft,32,24,26,82
+Ime (ID),Zlato,Srebro,Bron,Skupaj,DrzavaID
+Stefan Kraft (AUT),32,24,26,82
 Rjoju Kobajasi,22,23,16,61
-Anze Lanisek,18,21,12,51
-Domen Prevc,24,10,7,41
-Halvor Egner Granerud,24,11,4,39
-Andreas Wellinger,9,15,10,34
-Kamil Stoch,14,10,8,32
-Karl Geiger,10,9,12,31
-Daniel Tschofenig,13,5,13,31
-Jan Horl,5,18,6,29
-Gregor Schlierenzauer,15,6,7,28
-Dawid Kubacki,11,6,11,28
-Marius Lindvik,6,8,11,25
-Anders Bardal,6,7,11,24
-Peter Prevc,5,12,5,22
-Timi Zajc,5,7,9,21
-Johann Andre Forfang,5,6,8,19
-Severin Freund,7,8,3,18
-Thomas Morgenstern,2,4,7,13
-Markus Eisenbichler,1,3,9,13
-Andreas Kofler,6,3,3,12
-Daiki Ito,4,4,4,12
+Anze Lanisek (SLO),18,21,12,51
+Domen Prevc (SLO),24,10,7,41
+Halvor Egner Granerud (NOR),24,11,4,39
+Andreas Wellinger (GER),9,15,10,34
+Kamil Stoch (POL),14,10,8,32
+Karl Geiger (GER),10,9,12,31
+Daniel Tschofenig (AUT),13,5,13,31
+Jan Horl (AUT),5,18,6,29
+Gregor Schlierenzauer (AUT),15,6,7,28
+Dawid Kubacki (POL),11,6,11,28
+Marius Lindvik (NOR),6,8,11,25
+Anders Bardal (NOR),6,7,11,24
+Peter Prevc (SLO),5,12,5,22
+Timi Zajc (SLO),5,7,9,21
+Johann Andre Forfang (NOR),5,6,8,19
+Severin Freund (GER),7,8,3,18
+Thomas Morgenstern (AUT),2,4,7,13
+Markus Eisenbichler (GER),1,3,9,13
+Andreas Kofler (AUT),6,3,3,12
+Daiki Ito (JPN),4,4,4,12
 Daniel Huber,6,3,3,12
-Richard Freitag,2,7,2,11
-Pius Paschke,6,3,2,11
-Robert Kranjec,3,2,5,10
-Simon Ammann,0,5,5,10
-Piotr Zyła,0,5,5,10
-Ren Nikaido,1,5,3,9
-Stephan Embacher,1,4,4,9
-Michael Haybock,0,3,5,8
-Stephan Leyhe,2,4,2,8
-Gregor Deschwanden,1,4,2,7
-Noriaki Kasai,1,0,5,6
-Robert Johansson,1,1,4,6
-Manuel Fettner,0,1,5,6
-Philipp Raimund,1,1,4,6
-Martin Koch,3,1,1,5
-Anders Jacobsen,3,1,0,4
-Jan Matura,2,1,1,4
-Lovro Kos,2,0,2,4
+Richard Freitag (GER),2,7,2,11
+Pius Paschke (GER),6,3,2,11
+Robert Kranjec (YUG),3,2,5,10
+Simon Ammann (SUI),0,5,5,10
+Piotr Zyła (POL),0,5,5,10
+Ren Nikaido (JPN),1,5,3,9
+Stephan Embacher (AUT),1,4,4,9
+Michael Haybock (AUT),0,3,5,8
+Stephan Leyhe (GER),2,4,2,8
+Gregor Deschwanden (SUI),1,4,2,7
+Noriaki Kasai (JPN),1,0,5,6
+Robert Johansson (NOR),1,1,4,6
+Manuel Fettner (AUT),0,1,5,6
+Philipp Raimund (GER),1,1,4,6
+Martin Koch (AUT),3,1,1,5
+Anders Jacobsen (NOR),3,1,0,4
+Jan Matura (CZE),2,1,1,4
+Lovro Kos (SLO),2,0,2,4
 Kristoffer Eriksen Sundal,0,1,3,4
-Felix Hoffmann,0,1,3,4
-Jurij Tepes,1,0,2,3
-Jernej Damjan,1,1,1,3
+Felix Hoffmann (GER),0,1,3,4
+Jurij Tepes (YUG),1,0,2,3
+Jernej Damjan (YUG),1,1,1,3
 Maximilian Ortner,0,1,2,3
-Naoki Nakamura,0,1,2,3
-Rune Velta,0,1,1,2
+Naoki Nakamura (JPN),0,1,2,3
+Rune Velta (NOR),0,1,1,2
 Taku Takeuci,0,2,0,2
 Jan Ziobro,1,0,1,2
-Thomas Diethart,2,0,0,2
-Constantin Schmid,1,0,1,2
-Ziga Jelar,0,1,1,2
-Andrzej Stekała,1,1,0,2
-Daniel Andre Tande,0,1,1,2
-Aleksander Zniszczoł,0,0,2,2
-Tomofumi Naito,1,1,0,2
-Taku Takeuchi,0,0,1,1
-Roman Koudelka,0,1,0,1
-Lukas Hlava,0,0,1,1
-Anders Fannemel,0,1,0,1
+Thomas Diethart (AUT),2,0,0,2
+Constantin Schmid (GER),1,0,1,2
+Ziga Jelar (SLO),0,1,1,2
+Andrzej Stekała (POL),1,1,0,2
+Daniel Andre Tande (NOR),0,1,1,2
+Aleksander Zniszczoł (POL),0,0,2,2
+Tomofumi Naito (JPN),1,1,0,2
+Taku Takeuchi (JPN),0,0,1,1
+Roman Koudelka (CZE),0,1,0,1
+Lukas Hlava (CZE),0,0,1,1
+Anders Fannemel (NOR),0,1,0,1
 Dimitrij Vasiljev,0,1,0,1
-Tom Hilde,0,1,0,1
-Andreas Wank,0,0,1,1
-Michael Neumayer,0,1,0,1
+Tom Hilde (NOR),0,1,0,1
+Andreas Wank (GER),0,0,1,1
+Michael Neumayer (GER),0,1,0,1
 Jaka Hvala,1,0,0,1
-Andreas Stjernen,0,1,0,1
-Piotr Zyla,0,0,1,1
-Krzysztof Biegun,1,0,0,1
-Marinus Kraus,0,1,0,1
-Anssi Koivuranta,1,0,0,1
-Robin Pedersen,1,0,0,1
-Bor Pavlovcic,0,1,0,1
-Clemens Aigner,0,0,1,1
-Paweł Wasek,0,0,1,1
+Andreas Stjernen (NOR),0,1,0,1
+Piotr Zyla (POL),0,0,1,1
+Krzysztof Biegun (POL),1,0,0,1
+Marinus Kraus (GER),0,1,0,1
+Anssi Koivuranta (FIN),1,0,0,1
+Robin Pedersen (NOR),1,0,0,1
+Bor Pavlovcic (SLO),0,1,0,1
+Clemens Aigner (AUT),0,0,1,1
+Paweł Wasek (POL),0,0,1,1
 Jonas Schuster,0,0,1,1
-Vladimir Zografski,0,0,1,1
+Vladimir Zografski (BUL),0,0,1,1
 Antti Aalto,0,0,1,1

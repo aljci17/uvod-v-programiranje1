@@ -1,5 +1,5 @@
 from ciscenje import obdela_slovensko_sezono
-from csv_delo import shrani_csv
+from csv_delo import shrani_csv_tekmovalci, shrani_csv_drzave
 from drzavni_servis import pridobi_drzavo
 
 vse_sezone = list(range(1980, 2027))
@@ -42,31 +42,27 @@ for ime, m in zenske.items():
         skupno[ime][i] += m[i]
 
 drzave = {}
-
+tekmovalec_drzava = {}  # NOVO
 
 for ime, m in skupno.items():
-    drzava = pridobi_drzavo(ime)
+    drzava, drzava_id = pridobi_drzavo(ime)
 
     if drzava is None:
         continue
 
-    drzava = drzava.strip().lower()
-    drzava = drzava.capitalize()
-    drzave.setdefault(drzava, [0,0,0,0])
+    # shrani ID države za tekmovalca
+    tekmovalec_drzava[ime] = drzava_id
 
+    # seštevanje medalj po državah
+    drzave.setdefault(drzava_id, [drzava, 0, 0, 0, 0])
     for i in range(4):
-        drzave[drzava][i] += m[i]
+        drzave[drzava_id][i+1] += m[i]
 
 
-shrani_csv("skoki_moski.csv", moski)
-shrani_csv("skoki_zenske.csv", zenske)
-shrani_csv("skoki_skupno.csv", skupno)
 
-import csv
-with open("skoki_drzave.csv", "w", encoding="utf-8", newline="") as f:
-    w = csv.writer(f)
-    w.writerow(["Država", "Zlato", "Srebro", "Bron", "Skupaj"])
-    for k, m in sorted(drzave.items(), key=lambda x: x[1][3], reverse=True):
-        w.writerow([k, m[0], m[1], m[2], m[3]])
+shrani_csv_tekmovalci("skoki_moski.csv", moski, tekmovalec_drzava )
+shrani_csv_tekmovalci("skoki_zenske.csv", zenske, tekmovalec_drzava)
+shrani_csv_tekmovalci("skoki_skupno.csv", skupno, tekmovalec_drzava)
+shrani_csv_drzave("drzave.csv",drzave)
 
 print("Končano.")

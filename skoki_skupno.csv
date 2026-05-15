@@ -1,132 +1,132 @@
-Ime,Zlato,Srebro,Bron,Skupaj
-Stefan Kraft,32,24,26,82
-Nika Prevc,46,11,10,67
+Ime (ID),Zlato,Srebro,Bron,Skupaj,DrzavaID
+Stefan Kraft (AUT),32,24,26,82
+Nika Prevc (SLO),46,11,10,67
 Rjoju Kobajasi,22,23,16,61
 Sara Takanasi,26,20,8,54
-Anze Lanisek,18,21,12,51
-Eva Pinkelnig,16,15,17,48
-Domen Prevc,24,10,7,41
-Halvor Egner Granerud,24,11,4,39
-Eirin Maria Kvandal,15,9,11,35
-Andreas Wellinger,9,15,10,34
-Kamil Stoch,14,10,8,32
-Karl Geiger,10,9,12,31
-Daniel Tschofenig,13,5,13,31
-Anna Odine Strøm,5,13,13,31
-Jan Horl,5,18,6,29
-Gregor Schlierenzauer,15,6,7,28
-Dawid Kubacki,11,6,11,28
-Ema Klinec,4,14,8,26
-Nika Kriznar,9,5,12,26
-Marius Lindvik,6,8,11,25
-Anders Bardal,6,7,11,24
-Silje Opseth,6,12,6,24
+Anze Lanisek (SLO),18,21,12,51
+Eva Pinkelnig (AUT),16,15,17,48
+Domen Prevc (SLO),24,10,7,41
+Halvor Egner Granerud (NOR),24,11,4,39
+Eirin Maria Kvandal (NOR),15,9,11,35
+Andreas Wellinger (GER),9,15,10,34
+Kamil Stoch (POL),14,10,8,32
+Karl Geiger (GER),10,9,12,31
+Daniel Tschofenig (AUT),13,5,13,31
+Anna Odine Strøm (NOR),5,13,13,31
+Jan Horl (AUT),5,18,6,29
+Gregor Schlierenzauer (AUT),15,6,7,28
+Dawid Kubacki (POL),11,6,11,28
+Ema Klinec (SLO),4,14,8,26
+Nika Kriznar (SLO),9,5,12,26
+Marius Lindvik (NOR),6,8,11,25
+Anders Bardal (NOR),6,7,11,24
+Silje Opseth (NOR),6,12,6,24
 Nozomi Marujama,6,8,9,23
-Peter Prevc,5,12,5,22
-Timi Zajc,5,7,9,21
-Selina Freitag,0,12,9,21
-Sarah Hendrickson,11,6,3,20
-Johann Andre Forfang,5,6,8,19
-Severin Freund,7,8,3,18
-Jacqueline Seifriedsberger,3,7,8,18
-Katharina Althaus,7,6,5,18
+Peter Prevc (SLO),5,12,5,22
+Timi Zajc (SLO),5,7,9,21
+Selina Freitag (GER),0,12,9,21
+Sarah Hendrickson (U.S),11,6,3,20
+Johann Andre Forfang (NOR),5,6,8,19
+Severin Freund (GER),7,8,3,18
+Jacqueline Seifriedsberger (AUT),3,7,8,18
+Katharina Althaus (GER),7,6,5,18
 Juki Ito,6,5,6,17
-Marita Kramer,8,5,3,16
-Lisa Eder,2,7,6,15
-Katharina Schmid,3,6,6,15
-Thomas Morgenstern,2,4,7,13
-Markus Eisenbichler,1,3,9,13
-Andreas Kofler,6,3,3,12
-Daiki Ito,4,4,4,12
+Marita Kramer (NET),8,5,3,16
+Lisa Eder (AUT),2,7,6,15
+Katharina Schmid (GER),3,6,6,15
+Thomas Morgenstern (AUT),2,4,7,13
+Markus Eisenbichler (GER),1,3,9,13
+Andreas Kofler (AUT),6,3,3,12
+Daiki Ito (JPN),4,4,4,12
 Daniel Huber,6,3,3,12
-Alexandria Loutitt,2,4,6,12
-Richard Freitag,2,7,2,11
-Pius Paschke,6,3,2,11
-Maren Lundby,6,4,1,11
-Abigail Strate,1,4,6,11
-Robert Kranjec,3,2,5,10
-Simon Ammann,0,5,5,10
-Piotr Zyła,0,5,5,10
-Ren Nikaido,1,5,3,9
-Stephan Embacher,1,4,4,9
-Michael Haybock,0,3,5,8
-Stephan Leyhe,2,4,2,8
-Daniela Iraschko,2,2,4,8
-Carina Vogt,1,4,3,8
-Gregor Deschwanden,1,4,2,7
-Anette Sagen,1,1,5,7
-Coline Mattel,1,3,3,7
-Chiara Holzl,3,2,2,7
-Ursa Bogataj,2,1,4,7
-Noriaki Kasai,1,0,5,6
-Robert Johansson,1,1,4,6
-Manuel Fettner,0,1,5,6
-Philipp Raimund,1,1,4,6
-Martin Koch,3,1,1,5
+Alexandria Loutitt (CAN),2,4,6,12
+Richard Freitag (GER),2,7,2,11
+Pius Paschke (GER),6,3,2,11
+Maren Lundby (NOR),6,4,1,11
+Abigail Strate (CAN),1,4,6,11
+Robert Kranjec (YUG),3,2,5,10
+Simon Ammann (SUI),0,5,5,10
+Piotr Zyła (POL),0,5,5,10
+Ren Nikaido (JPN),1,5,3,9
+Stephan Embacher (AUT),1,4,4,9
+Michael Haybock (AUT),0,3,5,8
+Stephan Leyhe (GER),2,4,2,8
+Daniela Iraschko (AUT),2,2,4,8
+Carina Vogt (GER),1,4,3,8
+Gregor Deschwanden (SUI),1,4,2,7
+Anette Sagen (NOR),1,1,5,7
+Coline Mattel (FRA),1,3,3,7
+Chiara Holzl (AUT),3,2,2,7
+Ursa Bogataj (SLO),2,1,4,7
+Noriaki Kasai (JPN),1,0,5,6
+Robert Johansson (NOR),1,1,4,6
+Manuel Fettner (AUT),0,1,5,6
+Philipp Raimund (GER),1,1,4,6
+Martin Koch (AUT),3,1,1,5
 Irina Avakumova,1,1,3,5
-Chiara Kreuzer,2,1,2,5
-Anders Jacobsen,3,1,0,4
-Jan Matura,2,1,1,4
-Lovro Kos,2,0,2,4
+Chiara Kreuzer (AUT),2,1,2,5
+Anders Jacobsen (NOR),3,1,0,4
+Jan Matura (CZE),2,1,1,4
+Lovro Kos (SLO),2,0,2,4
 Kristoffer Eriksen Sundal,0,1,3,4
-Felix Hoffmann,0,1,3,4
-Josephine Pagnier,2,1,1,4
-Thea Minyan Bjørseth,0,1,3,4
-Jurij Tepes,1,0,2,3
-Jernej Damjan,1,1,1,3
+Felix Hoffmann (GER),0,1,3,4
+Josephine Pagnier (FRA),2,1,1,4
+Thea Minyan Bjørseth (NOR),0,1,3,4
+Jurij Tepes (YUG),1,0,2,3
+Jernej Damjan (YUG),1,1,1,3
 Maximilian Ortner,0,1,2,3
-Naoki Nakamura,0,1,2,3
-Spela Rogelj,1,0,2,3
-Maja Vtic,1,2,0,3
-Rune Velta,0,1,1,2
+Naoki Nakamura (JPN),0,1,2,3
+Spela Rogelj (SLO),1,0,2,3
+Maja Vtic (YUG),1,2,0,3
+Rune Velta (NOR),0,1,1,2
 Taku Takeuci,0,2,0,2
 Jan Ziobro,1,0,1,2
-Thomas Diethart,2,0,0,2
-Constantin Schmid,1,0,1,2
-Ziga Jelar,0,1,1,2
-Andrzej Stekała,1,1,0,2
-Daniel Andre Tande,0,1,1,2
-Aleksander Zniszczoł,0,0,2,2
-Tomofumi Naito,1,1,0,2
+Thomas Diethart (AUT),2,0,0,2
+Constantin Schmid (GER),1,0,1,2
+Ziga Jelar (SLO),0,1,1,2
+Andrzej Stekała (POL),1,1,0,2
+Daniel Andre Tande (NOR),0,1,1,2
+Aleksander Zniszczoł (POL),0,0,2,2
+Tomofumi Naito (JPN),1,1,0,2
 Lindsey Van,0,1,1,2
-Jessica Jerome,0,1,1,2
-Katja Pozun,0,1,1,2
-Frida Westman,0,1,1,2
-Agnes Reisch,0,1,1,2
-Heidi Dyhre Traaserud,0,1,1,2
-Taku Takeuchi,0,0,1,1
-Roman Koudelka,0,1,0,1
-Lukas Hlava,0,0,1,1
-Anders Fannemel,0,1,0,1
+Jessica Jerome (U.S),0,1,1,2
+Katja Pozun (SLO),0,1,1,2
+Frida Westman (SWE),0,1,1,2
+Agnes Reisch (GER),0,1,1,2
+Heidi Dyhre Traaserud (NOR),0,1,1,2
+Taku Takeuchi (JPN),0,0,1,1
+Roman Koudelka (CZE),0,1,0,1
+Lukas Hlava (CZE),0,0,1,1
+Anders Fannemel (NOR),0,1,0,1
 Dimitrij Vasiljev,0,1,0,1
-Tom Hilde,0,1,0,1
-Andreas Wank,0,0,1,1
-Michael Neumayer,0,1,0,1
+Tom Hilde (NOR),0,1,0,1
+Andreas Wank (GER),0,0,1,1
+Michael Neumayer (GER),0,1,0,1
 Jaka Hvala,1,0,0,1
-Andreas Stjernen,0,1,0,1
-Piotr Zyla,0,0,1,1
-Krzysztof Biegun,1,0,0,1
-Marinus Kraus,0,1,0,1
-Anssi Koivuranta,1,0,0,1
-Robin Pedersen,1,0,0,1
-Bor Pavlovcic,0,1,0,1
-Clemens Aigner,0,0,1,1
-Paweł Wasek,0,0,1,1
+Andreas Stjernen (NOR),0,1,0,1
+Piotr Zyla (POL),0,0,1,1
+Krzysztof Biegun (POL),1,0,0,1
+Marinus Kraus (GER),0,1,0,1
+Anssi Koivuranta (FIN),1,0,0,1
+Robin Pedersen (NOR),1,0,0,1
+Bor Pavlovcic (SLO),0,1,0,1
+Clemens Aigner (AUT),0,0,1,1
+Paweł Wasek (POL),0,0,1,1
 Jonas Schuster,0,0,1,1
-Vladimir Zografski,0,0,1,1
+Vladimir Zografski (BUL),0,0,1,1
 Antti Aalto,0,0,1,1
-Sabrina Windmuller,1,0,0,1
+Sabrina Windmuller (SUI),1,0,0,1
 Lisa Demetz,0,0,1,1
 Bigna Windmuller,0,0,1,1
-Evelyn Insam,0,0,1,1
-Julia Kykkanen,0,0,1,1
-Julia Clair,0,0,1,1
-Taylor Henrich,0,0,1,1
+Evelyn Insam (ITA),0,0,1,1
+Julia Kykkanen (FIN),0,0,1,1
+Julia Clair (FRA),0,0,1,1
+Taylor Henrich (CAN),0,0,1,1
 Nizni Tagil,1,0,0,1
-Irina Avvakumova,0,0,1,1
-Lara Malsiner,0,0,1,1
-Aleksandra Kustova,0,0,1,1
-Julia Muhlbacher,0,0,1,1
-Jenny Rautionaho,0,1,0,1
-Nika Vodan,0,1,0,1
-Zeng Ping,0,1,0,1
+Irina Avvakumova (USS),0,0,1,1
+Lara Malsiner (ITA),0,0,1,1
+Aleksandra Kustova (RUS),0,0,1,1
+Julia Muhlbacher (AUT),0,0,1,1
+Jenny Rautionaho (FIN),0,1,0,1
+Nika Vodan (SLO),0,1,0,1
+Zeng Ping (CHI),0,1,0,1

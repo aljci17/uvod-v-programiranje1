@@ -4,7 +4,17 @@ def normaliziraj_drzavo(raw):
     if not raw:
         return None
 
-    d = raw.strip().lower()
+    raw = raw.strip()
+
+    # odstrani čiste številke
+    if raw.isdigit():
+        return None
+
+    # odstrani zelo kratke nize
+    if len(raw) < 3:
+        return None
+
+    d = raw.lower()
 
     # odstrani oklepaje
     d = re.sub(r"\(.*?\)", "", d)
@@ -14,7 +24,11 @@ def normaliziraj_drzavo(raw):
     if "," in d:
         d = d.split(",")[-1].strip()
 
-    # ključne besede → standardizirana država
+    # posebni primeri Jugoslavije
+    if "jugoslav" in d or "yugosl" in d:
+        return "Jugoslavija"
+
+    # mapping
     mapping = {
         "sloven": "slovenija",
         "austria": "avstrija",
@@ -23,6 +37,7 @@ def normaliziraj_drzavo(raw):
         "deutschland": "nemčija",
         "norway": "norveška",
         "norge": "norveška",
+        "norveg": "norveška",
         "japan": "japonska",
         "poland": "poljska",
         "finland": "finska",
@@ -51,6 +66,10 @@ def normaliziraj_drzavo(raw):
     for key, val in mapping.items():
         if key in d:
             return val
+
+    # norveška fallback
+    if d.startswith("nor"):
+        return "norveška"
 
     # fallback
     return d.capitalize()
