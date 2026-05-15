@@ -1,9 +1,9 @@
 import time
-from branje_drzav import beri_drzavo_raw
+from branje_drzav import branje_drzavo_raw
 from normalno import normaliziraj_drzavo
 
 def pridobi_drzavo(ime):
-    raw = beri_drzavo_raw(ime)
+    raw = branje_drzavo_raw(ime)
     drzava = normaliziraj_drzavo(raw)
 
     if drzava is None:

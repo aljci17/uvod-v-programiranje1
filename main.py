@@ -50,7 +50,10 @@ for ime, m in skupno.items():
     if drzava is None:
         continue
 
+    drzava = drzava.strip().lower()
+    drzava = drzava.capitalize()
     drzave.setdefault(drzava, [0,0,0,0])
+
     for i in range(4):
         drzave[drzava][i] += m[i]
 

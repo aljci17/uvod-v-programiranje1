@@ -1,6 +1,6 @@
 from cache import preberi_ali_prenesi
 from bs4 import BeautifulSoup
-from imena import pocisti_ime, je_pravo_ime
+from imena import pocisti_ime, je_pravo_ime, normaliziraj_ime
 
 
 
@@ -9,19 +9,45 @@ def izloci_medalje_iz_tabele(tabela):
 
     for vrstica in tabela.find_all("tr"):
         celice = vrstica.find_all("td")
-        if len(celice) < 7:
+
+        # preskoči vrstice brez rezultatov
+        if len(celice) < 3:
             continue
 
-        w = pocisti_ime(celice[4].get_text())
-        s = pocisti_ime(celice[5].get_text())
-        b = pocisti_ime(celice[6].get_text())
+        kandidati = [c.get_text(strip=True) for c in celice]
 
-        for i, ime in enumerate([w, s, b]):
-            if ime and je_pravo_ime(ime):
-                medalje.setdefault(ime, [0, 0, 0])
-                medalje[ime][i] += 1
+        # filtriraj ven očitno napačne vnose
+        filtrirani = []
+        for x in kandidati:
+            if any(kw in x.lower() for kw in [
+                "hs", "team", "ekip", "odpoved", "prestavlj", "dq", "dnf",
+                "slo ", "aut ", "nor ", "ger ", "pol ", "jpn ", "usa ", "can ",
+                "l788", "n161", "f141"
+            ]):
+                continue
+            if len(x) < 3:
+                continue
+            filtrirani.append(x)
+
+        # iščemo 3 imena zapored
+        imena = []
+        for x in filtrirani:
+            x = pocisti_ime(x)
+            x = normaliziraj_ime(x)
+            if x and je_pravo_ime(x):
+                imena.append(x)
+
+        if len(imena) != 3:
+            continue
+
+        # dodaj medalje
+        for i, ime in enumerate(imena):
+            medalje.setdefault(ime, [0, 0, 0])
+            medalje[ime][i] += 1
 
     return medalje
+
+
 
 
 def obdela_slovensko_sezono(leto):

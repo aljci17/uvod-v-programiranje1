@@ -15,3 +15,14 @@ def je_pravo_ime(ime):
     if not ime:
         return False
     return bool(vzorec_ime.match(ime))
+
+import unicodedata
+
+def normaliziraj_ime(ime):
+    if not ime:
+        return None
+    ime = ime.strip()
+    ime = unicodedata.normalize("NFKD", ime)
+    ime = "".join(c for c in ime if not unicodedata.combining(c))
+    ime = ime.replace("  ", " ")
+    return ime
