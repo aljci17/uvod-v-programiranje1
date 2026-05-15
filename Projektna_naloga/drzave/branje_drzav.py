@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from cache import preberi_ali_prenesi
+from Projektna_naloga.cache import preberi_ali_prenesi
 
 def branje_drzavo_raw(ime):
     ime_url = ime.replace(" ", "_")

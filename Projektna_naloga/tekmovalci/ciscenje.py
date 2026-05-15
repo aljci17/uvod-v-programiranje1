@@ -1,6 +1,6 @@
-from cache import preberi_ali_prenesi
+from Projektna_naloga.cache import preberi_ali_prenesi
 from bs4 import BeautifulSoup
-from imena import pocisti_ime, je_pravo_ime, normaliziraj_ime
+from Projektna_naloga.tekmovalci.imena import pocisti_ime, je_pravo_ime, normaliziraj_ime
 
 
 

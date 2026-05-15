@@ -1,6 +1,6 @@
-from ciscenje import obdela_slovensko_sezono
-from csv_delo import shrani_csv_tekmovalci, shrani_csv_drzave
-from drzavni_servis import pridobi_drzavo
+from Projektna_naloga.tekmovalci.ciscenje import obdela_slovensko_sezono
+from Projektna_naloga.csv_delo import shrani_csv_tekmovalci, shrani_csv_drzave
+from Projektna_naloga.drzave.drzavni_servis import pridobi_drzavo
 
 vse_sezone = list(range(1980, 2027))
 

@@ -1,7 +1,7 @@
 import time
-from branje_drzav import branje_drzavo_raw
-from normalno import normaliziraj_drzavo
-from drzave_id import drzava_v_id
+from Projektna_naloga.drzave.branje_drzav import branje_drzavo_raw
+from Projektna_naloga.drzave.normalno import normaliziraj_drzavo
+from Projektna_naloga.drzave.drzave_id import drzava_v_id
 
 def pridobi_drzavo(ime):
     raw = branje_drzavo_raw(ime)
