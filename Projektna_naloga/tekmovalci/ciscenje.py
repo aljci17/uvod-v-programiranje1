@@ -76,34 +76,3 @@ def obdela_slovensko_sezono(leto):
                 zenske = izloci_medalje_iz_tabele(tabela)
 
     return moski, zenske
-
-
-
-def izloci_top3_iz_tabele(tabela):
-    """
-    Iz tabele na Wikipediji izlušči točno 3 imena (1., 2., 3. mesto).
-    Vrne seznam trojic: [ [ime1, ime2, ime3], ... ]
-    """
-    rezultati = []
-
-    for vrstica in tabela.find_all("tr"):
-        celice = vrstica.find_all("td")
-
-        # tabela mora imeti vsaj 3 stolpce
-        if len(celice) < 3:
-            continue
-
-        kandidati = [c.get_text(strip=True) for c in celice]
-
-        imena = []
-        for x in kandidati:
-            x = pocisti_ime(x)
-            x = normaliziraj_ime(x)
-            if x and je_pravo_ime(x):
-                imena.append(x)
-
-        # iščemo točno 3 imena (1., 2., 3. mesto)
-        if len(imena) == 3:
-            rezultati.append(imena)
-
-    return rezultati

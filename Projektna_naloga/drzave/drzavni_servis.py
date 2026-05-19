@@ -3,6 +3,7 @@ from .branje_drzav import branje_drzavo_raw
 from .normalno import normaliziraj_drzavo
 from .drzave_id import drzava_v_id
 
+
 def pridobi_drzavo(ime):
     raw = branje_drzavo_raw(ime)
     drzava = normaliziraj_drzavo(raw)

@@ -1,24 +1,23 @@
-from drzave.branje_drzav import pridobi_drzavo_iz_wiki
-from drzave.normalno import normaliziraj_drzavo
-from drzave.drzave_id import drzava_v_id
-from drzave.fis import najdi_fis_povezavo
-from drzave.fis_selenium import prestej_fis_podiums_selenium
+import requests
 
+def najdi_fis_id(ime):
+    if ime in FIS_ID_CACHE:
+        return FIS_ID_CACHE[ime]
 
-def obdela_tekmovalca(ime):
-    drzava_raw = pridobi_drzavo_iz_wiki(ime)
-    drzava = normaliziraj_drzavo(drzava_raw)
-    drzava_id = drzava_v_id(drzava)
+    parts = ime.split()
+    ime_fis = f"{parts[1]}%20{parts[0]}"  # PRIIMEK IME
 
-    fis_url = najdi_fis_povezavo(ime)
-    medalje = prestej_fis_podiums_selenium(fis_url)
+    url = f"https://www.fis-ski.com/DB/general/athlete-biography/json/search?term={ime_fis}"
 
-    return {
-        "ime": ime,
-        "drzava": drzava,
-        "id": drzava_id,
-        "zlato": medalje[0],
-        "srebro": medalje[1],
-        "bron": medalje[2],
-        "skupaj": sum(medalje)
-    }
+    try:
+        data = requests.get(url, headers=HEADERS, timeout=15).json()
+        results = data.get("items", [])
+        if results:
+            fis_id = results[0].get("competitorId")
+            FIS_ID_CACHE[ime] = fis_id
+            return fis_id
+    except:
+        pass
+
+    FIS_ID_CACHE[ime] = None
+    return None

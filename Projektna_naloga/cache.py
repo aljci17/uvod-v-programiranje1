@@ -2,6 +2,7 @@ import os
 import re
 from requests_html import HTMLSession
 
+session = HTMLSession()
 session = HTMLSession() # HTMLSession omogoča pošiljanje HTTP zahtev in enostavno parsanje HTML-ja
 
 CACHE_DIR = "shranjene_strani"
