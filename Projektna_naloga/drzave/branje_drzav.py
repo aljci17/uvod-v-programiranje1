@@ -1,14 +1,12 @@
 from bs4 import BeautifulSoup
 from cache import preberi_ali_prenesi
 
-def branje_drzavo_raw(ime):
+def pridobi_drzavo_iz_wiki(ime):
     ime_url = ime.replace(" ", "_")
 
     urls = [
         f"https://sl.wikipedia.org/wiki/{ime_url}",
         f"https://en.wikipedia.org/wiki/{ime_url}",
-        f"https://sl.wikipedia.org/w/index.php?search={ime_url}",
-        f"https://en.wikipedia.org/w/index.php?search={ime_url}"
     ]
 
     for url in urls:
@@ -27,8 +25,8 @@ def branje_drzavo_raw(ime):
             if not th or not td:
                 continue
 
-            key = th.get_text().strip().lower()
-            val = td.get_text().strip()
+            key = th.get_text(strip=True).lower()
+            val = td.get_text(strip=True)
 
             if "reprezentanca" in key or "država" in key:
                 return val
@@ -36,10 +34,8 @@ def branje_drzavo_raw(ime):
             if "nationality" in key or "country" in key:
                 return val
 
+            # Born: Oslo, Norway → vzemi zadnji del
             if ("born" in key or "rojen" in key) and "," in val:
                 return val.split(",")[-1].strip()
-
-            if "club" in key or "team" in key:
-                return val
 
     return None

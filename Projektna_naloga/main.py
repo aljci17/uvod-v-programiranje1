@@ -1,68 +1,26 @@
-from tekmovalci.ciscenje import obdela_slovensko_sezono
-from csv_delo import shrani_csv_tekmovalci, shrani_csv_drzave
-from drzave.drzavni_servis import pridobi_drzavo
+from sezona.sezona import obdela_sezono
+from tekmovalci.tekmovalec import obdela_tekmovalca
+from izvoz_csv.csv_delo import shrani_csv_tekmovalci, shrani_csv_drzave
 
-vse_sezone = list(range(1980, 2027))
+def glavni():
+    vsi = set()
 
-moski = {}
-zenske = {}
+    for leto in range(1980, 2026 + 1):
+        print(f"Obdelujem sezono {leto} ...")
+        for ime in obdela_sezono(leto):
+            vsi.add(ime)
 
-for leto in vse_sezone:
-    sez = obdela_slovensko_sezono(leto)
-    if sez is None:
-        continue
+    print(f"Najdenih tekmovalcev: {len(vsi)}")
 
-    m, z = sez
+    rezultati = {}
+    for ime in vsi:
+        print(f"Obdelujem tekmovalca: {ime}")
+        rezultati[ime] = obdela_tekmovalca(ime)
 
-    for ime, medalje in m.items():
-        moski.setdefault(ime, [0,0,0])
-        for i in range(3):
-            moski[ime][i] += medalje[i]
+    shrani_csv_tekmovalci("skoki_vsi_tekmovalci.csv", rezultati)
+    shrani_csv_drzave("skoki_vse_drzave.csv", rezultati)
 
-    for ime, medalje in z.items():
-        zenske.setdefault(ime, [0,0,0])
-        for i in range(3):
-            zenske[ime][i] += medalje[i]
+    print("Končano!")
 
-def dodaj_skupaj(d):
-    return {ime: [z, s, b, z+s+b] for ime, (z,s,b) in d.items()}
-
-moski = dodaj_skupaj(moski)
-zenske = dodaj_skupaj(zenske)
-
-skupno = {}
-for ime, m in moski.items():
-    skupno.setdefault(ime, [0,0,0,0])
-    for i in range(4):
-        skupno[ime][i] += m[i]
-
-for ime, m in zenske.items():
-    skupno.setdefault(ime, [0,0,0,0])
-    for i in range(4):
-        skupno[ime][i] += m[i]
-
-drzave = {}
-tekmovalec_drzava = {}  
-
-for ime, m in skupno.items():
-    drzava, drzava_id = pridobi_drzavo(ime)
-
-    if drzava is None:
-        continue
-
-    # shrani ID države za tekmovalca
-    tekmovalec_drzava[ime] = drzava_id
-
-    # seštevanje medalj po državah
-    drzave.setdefault(drzava_id, [drzava, 0, 0, 0, 0])
-    for i in range(4):
-        drzave[drzava_id][i+1] += m[i]
-
-
-
-shrani_csv_tekmovalci("skoki_moski.csv", moski, tekmovalec_drzava )
-shrani_csv_tekmovalci("skoki_zenske.csv", zenske, tekmovalec_drzava)
-shrani_csv_tekmovalci("skoki_skupno.csv", skupno, tekmovalec_drzava)
-shrani_csv_drzave("drzave.csv",drzave)
-
-print("Končano.")
+if __name__ == "__main__":
+    glavni()

@@ -1,6 +1,6 @@
 def drzava_v_id(drzava):
-    if not drzava:
-        return None
+    if not drzava or drzava == "Neznano":
+        return "UNK"  # unknown
 
     d = drzava.lower()
 

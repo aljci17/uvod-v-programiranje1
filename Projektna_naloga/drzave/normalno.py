@@ -15,6 +15,20 @@ def normaliziraj_drzavo(raw):
         return None
 
     d = raw.lower()
+    
+    # odstrani rojstne kraje
+    if any(mesto in d for mesto in ["kranj", "oslo", "trondheim", "ljubljana", "sapporo"]):
+        return None
+
+    # odstrani mesece
+    MESECI = ["january","february","march","april","may","june","july","august",
+          "september","october","november","december",
+          "januar","februar","marec","april","maj","junij","julij","avgust",
+          "september","oktober","november","december"]
+
+    if any(m in d for m in MESECI):
+        return None
+
 
     # odstrani oklepaje
     d = re.sub(r"\(.*?\)", "", d)

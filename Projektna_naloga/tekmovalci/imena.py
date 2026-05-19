@@ -16,13 +16,27 @@ def je_pravo_ime(ime):
         return False
     return bool(vzorec_ime.match(ime))
 
+import re
 import unicodedata
 
 def normaliziraj_ime(ime):
     if not ime:
         return None
-    ime = ime.strip()
-    ime = unicodedata.normalize("NFKD", ime)
-    ime = "".join(c for c in ime if not unicodedata.combining(c))
-    ime = ime.replace("  ", " ")
-    return ime
+
+    # odstrani reference [1], [2] …
+    ime = re.sub(r"\[\d+\]", "", ime)
+
+    # odstrani oklepaje
+    ime = re.sub(r"\(.*?\)", "", ime)
+
+    # odstrani unicode naglase
+    ime = unicodedata.normalize("NFKD", ime).encode("ascii", "ignore").decode()
+
+    # odstrani inicialke
+    ime = re.sub(r"^[A-Z]\.\s*", "", ime)
+
+    # odstrani dvojne presledke
+    ime = " ".join(ime.split())
+
+    return ime.strip()
+
