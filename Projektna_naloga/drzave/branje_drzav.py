@@ -8,8 +8,6 @@ def branje_drzavo_raw(ime):
     urls = [
         f"https://sl.wikipedia.org/wiki/{ime_url}",
         f"https://en.wikipedia.org/wiki/{ime_url}",
-        f"https://sl.wikipedia.org/w/index.php?search={ime_url}",
-        f"https://en.wikipedia.org/w/index.php?search={ime_url}"
     ]
 
     for url in urls:
@@ -28,8 +26,14 @@ def branje_drzavo_raw(ime):
             if not th or not td:
                 continue
 
-            key = th.get_text().strip().lower()
-            val = td.get_text().strip()
+            key = th.get_text(strip=True).lower()
+
+            # --- tukaj preberemo državo iz <a> taga ---
+            a = td.find("<a .*>(.*)</a>")
+            if a:
+                val = a.get_text(strip=True)
+            else:
+                val = td.get_text(strip=True)
 
             if "reprezentanca" in key or "država" in key:
                 return val
@@ -39,8 +43,5 @@ def branje_drzavo_raw(ime):
 
             if ("born" in key or "rojen" in key) and "," in val:
                 return val.split(",")[-1].strip()
-
-            if "club" in key or "team" in key:
-                return val
 
     return None

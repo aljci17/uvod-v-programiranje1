@@ -1,23 +1,24 @@
-import re
-
-vzorec_ime = re.compile(r"^[A-ZÀ-Ž][a-zà-ž\-]+( [A-ZÀ-Ž][a-zà-ž\-]+){1,2}$")
+import regex as re   # POZOR: uporabi "regex" knjižnico, ne "re"
+import unicodedata
+vzorec_ime = re.compile(r"^[\p{Lu}][\p{Ll}\p{M}\-]+( [\p{Lu}][\p{Ll}\p{M}\-]+){1,2}$",re.UNICODE)
 
 def pocisti_ime(ime):
     if not ime:
         return None
-    ime = re.sub(r"\[\d+\]", "", ime)
-    ime = ime.replace("\xa0", " ").strip()
-    ime = re.sub(r"[^A-Za-zÀ-ž\s\-]", "", ime)
-    ime = re.sub(r"\s+", " ", ime)
+
+    ime = re.sub(r"\[\d+\]", "", ime)      # odstrani reference
+    ime = ime.replace("\xa0", " ")         # non-breaking space
+    ime = re.sub(r"[^\p{L}\s\-]", "", ime) # pusti vse črke vseh jezikov
+    ime = re.sub(r"\s+", " ", ime).strip()
+
     return ime if len(ime) > 1 else None
+
 
 def je_pravo_ime(ime):
     if not ime:
         return False
     return bool(vzorec_ime.match(ime))
 
-import re
-import unicodedata
 
 def normaliziraj_ime(ime):
     if not ime:

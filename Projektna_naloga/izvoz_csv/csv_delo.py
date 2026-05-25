@@ -3,7 +3,6 @@ import csv
 def shrani_csv_tekmovalci(ime_datoteke, podatki, drzave_tekmovalcev):
     with open(ime_datoteke, "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["Ime (ID)", "Zlato", "Srebro", "Bron", "Skupaj", "DrzavaID"])
         w.writerow(["Ime (ID)", "Zlato", "Srebro", "Bron", "Skupaj"])
         for ime, m in sorted(podatki.items(), key=lambda x: x[1][3], reverse=True):
             drzava_id = drzave_tekmovalcev.get(ime, "")

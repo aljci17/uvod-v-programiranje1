@@ -12,7 +12,7 @@ for leto in vse_sezone:
     if sez is None:
         continue
 
-    m, z = sez
+    m, z = sez #naredi re za spol
 
     for ime, medalje in m.items():
         moski.setdefault(ime, [0,0,0])
@@ -42,7 +42,6 @@ for ime, m in zenske.items():
         skupno[ime][i] += m[i]
 
 drzave = {}
-tekmovalec_drzava = {}  # NOVO
 tekmovalec_drzava = {}  
 
 for ime, m in skupno.items():
