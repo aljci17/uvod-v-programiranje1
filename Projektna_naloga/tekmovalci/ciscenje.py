@@ -51,28 +51,76 @@ def izloci_medalje_iz_tabele(tabela):
 
 
 def obdela_slovensko_sezono(leto):
-    url = f"https://sl.wikipedia.org/wiki/Svetovni_pokal_v_smu%C4%8Darskih_skokih_{leto}"
+    
+    url = (
+        f"https://sl.wikipedia.org/wiki/"
+        f"Svetovni_pokal_v_smu%C4%8Darskih_skokih_{leto}"
+    )
+
     html = preberi_ali_prenesi(url)
+
     if not html:
         return None
-
 
     juha = BeautifulSoup(html, "html.parser")
 
     moski = {}
     zenske = {}
 
-    for h in juha.find_all(["h2", "h3"]):
-        naslov = h.get_text().lower()
+    trenutni_spol = None
 
-        if "moški" in naslov:
-            tabela = h.find_next("table")
-            if tabela:
-                moski = izloci_medalje_iz_tabele(tabela)
+    # preglej vse elemente po vrsti
+    for el in juha.find_all(["h2", "h3", "table"]):
 
-        if "ženske" in naslov:
-            tabela = h.find_next("table")
-            if tabela:
-                zenske = izloci_medalje_iz_tabele(tabela)
+        # NASLOVI
+        if el.name in ["h2", "h3"]:
+
+            naslov = el.get_text(
+                " ",
+                strip=True
+            ).lower()
+
+            if "moški" in naslov:
+                trenutni_spol = "M"
+
+            elif (
+                "ženske" in naslov or
+                "ženski" in naslov
+            ):
+                trenutni_spol = "Z"
+
+        # TABELE
+        elif el.name == "table":
+
+            medalje = izloci_medalje_iz_tabele(el)
+
+            if not medalje:
+                continue
+
+            # MOŠKI
+            if trenutni_spol == "M":
+
+                for ime, m in medalje.items():
+
+                    moski.setdefault(
+                        ime,
+                        [0,0,0]
+                    )
+
+                    for i in range(3):
+                        moski[ime][i] += m[i]
+
+            # ŽENSKE
+            elif trenutni_spol == "Z":
+
+                for ime, m in medalje.items():
+
+                    zenske.setdefault(
+                        ime,
+                        [0,0,0]
+                    )
+
+                    for i in range(3):
+                        zenske[ime][i] += m[i]
 
     return moski, zenske
