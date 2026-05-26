@@ -33,6 +33,7 @@ for leto in vse_sezone:
 
         for i in range(3):
             moski[ime][i] += medalje[i]
+    
 
 
     for ime, medalje in z.items():
@@ -48,7 +49,8 @@ for leto in vse_sezone:
 
         for i in range(3):
             zenske[ime][i] += medalje[i]
-                
+    
+
 def dodaj_skupaj(d):
     
     return {
