@@ -49,7 +49,6 @@ def izloci_medalje_iz_tabele(tabela):
 
 
 
-
 def obdela_slovensko_sezono(leto):
     
     url = (

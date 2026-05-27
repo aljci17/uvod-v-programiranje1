@@ -75,10 +75,28 @@ def normaliziraj_ime(ime):
         "Nozomi Marujama": "Nozomi Maruyama",
         
         # Ryoyu / Ryōyū Kobayashi — različne napačne variante
-        "Rjoju Kobajaši": "Ryoyu Kobayashi",
+        "Rjoju Kobajaši": "Ryōyū Kobayashi",
+        "Ryoyu Kobayashi": "Ryōyū Kobayashi",
         
         "Jūki Itō": "Juki Ito",
-        "Juki Itō": "Juki Ito"
+        "Juki Itō": "Juki Ito",
+        
+        "Andrzej Stękała": "Andrzej Stękała",
+        
+        "Sara Takanaši": "Sara Takanashi",
+        
+        "Paweł Wąsek": "Paweł Wąsek",
+        
+        "Taku Takeuči": "Taku Takeuchi",
+        
+        "Jukija Sato": "Yukiya Sato",
+        
+        "Džunširo Kobajaši": "Junshirō Kobayashi",
+        
+        "Jevgenij Klimov":"Evgenii Klimov",
+        
+        "Daiki Ito": "Daiki Itō"
+        
     }
 
     if ime in posebni_popravki:

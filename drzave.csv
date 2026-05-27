@@ -1,19 +1,19 @@
 DrzavaID,Drzava,Zlato,Srebro,Bron,Skupaj
--1,Neznana,138,137,142,417
-AUT,Avstrija,94,66,117,277
-SLO,slovenija,84,75,94,253
+AUT,Avstrija,102,91,134,327
+SLO,slovenija,89,80,99,268
+NOR,norveška,53,105,59,217
 GER,Nemčija,50,76,88,214
-NOR,norveška,46,89,41,176
+-1,Neznana,78,48,71,197
+JPN,japonska,43,40,30,113
+POL,poljska,2,10,9,21
 SUI,Švica,1,12,7,20
 CAN,kanada,0,0,18,18
-JPN,japonska,2,7,6,15
 SWE,švedska,0,14,0,14
 FRA,Francija,0,0,12,12
 CZE,Češka,5,2,3,10
-YUG,Jugoslavija,2,1,1,4
-POL,poljska,1,0,2,3
-RUS,Ruska federacija,0,1,0,1
+RUS,Ruska federacija,0,2,0,2
+ČEŠ,Češki,0,0,1,1
 FIN,finska,1,0,0,1
-ZDA,Zda,0,0,0,0
-ITA,italija,0,0,0,0
-CHI,China,0,0,0,0
+USA,Zda,0,0,0,0
+ITA,Italian,0,0,0,0
+CHN,China,0,0,0,0
