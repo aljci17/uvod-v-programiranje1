@@ -5,15 +5,16 @@ from izvoz_csv.csv_delo import (
 )
 from drzave.drzavni_servis import pridobi_drzavo
 from tekmovalci.preimenovanja import popravi_porocena_imena
+from izvoz_csv.medalje_po_sezonah import ustvari_csv_vseh_sezon
 
-vse_sezone = list(range(1980,2027))
+
+vse_sezone = list(range(2012,2027))
 
 moski = {}
 zenske = {}
 
 for leto in vse_sezone:
 
-    print(f"\n=== Obdelujem sezono {leto} ===")
 
     sez = obdela_slovensko_sezono(leto)
 
@@ -22,7 +23,6 @@ for leto in vse_sezone:
 
     m, z = sez
 
-    print(f"  Moških: {len(m)}, žensk: {len(z)}")
 
     # moški
     for ime, medalje in m.items():
@@ -31,8 +31,6 @@ for leto in vse_sezone:
             continue
         
         moski.setdefault(ime, [0,0,0])
-
-        print(f"    ➕ Moški {ime}: +{medalje}")
 
         for i in range(3):
             moski[ime][i] += medalje[i]
@@ -44,8 +42,6 @@ for leto in vse_sezone:
             continue
 
         zenske.setdefault(ime, [0,0,0])
-
-        print(f"    ➕ Ženska {ime}: +{medalje}")
 
         for i in range(3):
             zenske[ime][i] += medalje[i]
@@ -101,6 +97,8 @@ shrani_csv_tekmovalci("skoki_moski.csv", moski, tekmovalec_drzava)
 shrani_csv_tekmovalci("skoki_zenske.csv", zenske, tekmovalec_drzava)
 shrani_csv_tekmovalci("skoki_skupno.csv", skupno, tekmovalec_drzava)
 shrani_csv_drzave("drzave.csv", drzave)
+# Ustvari CSV-je po sezonah (moški + ženske skupaj)
+ustvari_csv_vseh_sezon(vse_sezone)
 
 print("\nKončano.")
 

@@ -1,7 +1,6 @@
 from cache import preberi_ali_prenesi
-from bs4 import BeautifulSoup
 from .imena import pocisti_ime, je_pravo_ime, normaliziraj_ime
-
+from bs4 import BeautifulSoup
 
 
 def izloci_medalje_iz_tabele(tabela):
