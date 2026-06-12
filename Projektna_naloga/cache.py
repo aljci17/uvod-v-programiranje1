@@ -36,25 +36,35 @@ def preberi_ali_prenesi(url):
     ime = url_v_ime(url)
     pot = os.path.join(CACHE_DIR, ime)
 
-    # če datoteka obstaja → beri lokalno
+    # 1) Če datoteka obstaja → beri lokalno
     if os.path.exists(pot):
         with open(pot, "r", encoding="utf-8") as f:
             html = f.read()
 
-        # ============================
-        # IGNORIRAJ 404 STRANI
-        # ============================
+        # ignoriraj 404 ali prazne strani
         if (
-            "404 Not Found" in html or
-            "page does not exist" in html or
-            "Wikipedija nima članka" in html or
-            "Wikipedia does not have an article" in html
+            not html or
+            len(html) < 200 or
+            "404" in html or
+            "does not have an article" in html
         ):
+            pass  # pojdi prenesti ponovno
+        else:
+            return html
+
+    try:
+        r = session.get(url)
+        if r.status_code != 200:
             return None
+
+        html = r.text
+
+        # shrani samo, če ni prazno
+        if len(html) > 200:
+            with open(pot, "w", encoding="utf-8") as f:
+                f.write(html)
 
         return html
 
-    # če datoteka NE obstaja → NE hodi na internet
-    return None
-
-
+    except Exception as e:
+        return None
