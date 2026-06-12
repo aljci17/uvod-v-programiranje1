@@ -10,26 +10,23 @@ def izloci_medalje_iz_tabele(tabela):
     for vrstica in tabela.find_all("tr"):
         celice = vrstica.find_all("td")
 
-        # preskoči vrstice brez rezultatov
         if len(celice) < 3:
             continue
 
         kandidati = [c.get_text(strip=True) for c in celice]
 
-        # filtriraj ven očitno napačne vnose
         filtrirani = []
         for x in kandidati:
             if any(kw in x.lower() for kw in [
                 "hs", "team", "ekip", "odpoved", "prestavlj", "dq", "dnf",
                 "slo ", "aut ", "nor ", "ger ", "pol ", "jpn ", "usa ", "can ",
-                "l788", "n161", "f141"
+                "l788", "n161", "f141", "nižni tagil"
             ]):
                 continue
             if len(x) < 3:
                 continue
             filtrirani.append(x)
 
-        # iščemo 3 imena zapored
         imena = []
         for x in filtrirani:
             x = pocisti_ime(x)
@@ -40,7 +37,6 @@ def izloci_medalje_iz_tabele(tabela):
         if len(imena) != 3:
             continue
 
-        # dodaj medalje
         for i, ime in enumerate(imena):
             medalje.setdefault(ime, [0, 0, 0])
             medalje[ime][i] += 1
@@ -68,27 +64,17 @@ def obdela_slovensko_sezono(leto):
 
     trenutni_spol = None
 
-    # preglej vse elemente po vrsti
     for el in juha.find_all(["h2", "h3", "table"]):
 
-        # NASLOVI
         if el.name in ["h2", "h3"]:
-
-            naslov = el.get_text(
-                " ",
-                strip=True
-            ).lower()
+            naslov = el.get_text(" ", strip=True).lower()
 
             if "moški" in naslov:
                 trenutni_spol = "M"
 
-            elif (
-                "ženske" in naslov or
-                "ženski" in naslov
-            ):
+            elif "ženske" in naslov or "ženski" in naslov:
                 trenutni_spol = "Z"
 
-        # TABELE
         elif el.name == "table":
 
             medalje = izloci_medalje_iz_tabele(el)
@@ -96,29 +82,15 @@ def obdela_slovensko_sezono(leto):
             if not medalje:
                 continue
 
-            # MOŠKI
             if trenutni_spol == "M":
-
                 for ime, m in medalje.items():
-
-                    moski.setdefault(
-                        ime,
-                        [0,0,0]
-                    )
-
+                    moski.setdefault(ime, [0,0,0])
                     for i in range(3):
                         moski[ime][i] += m[i]
 
-            # ŽENSKE
             elif trenutni_spol == "Z":
-
                 for ime, m in medalje.items():
-
-                    zenske.setdefault(
-                        ime,
-                        [0,0,0]
-                    )
-
+                    zenske.setdefault(ime, [0,0,0])
                     for i in range(3):
                         zenske[ime][i] += m[i]
 

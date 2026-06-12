@@ -95,7 +95,19 @@ def normaliziraj_ime(ime):
         
         "Jevgenij Klimov":"Evgenii Klimov",
         
-        "Daiki Ito": "Daiki Itō"
+        "Kamil Stoch": "Kamil Stoch",
+        
+        "Piotr Zyla": "Piotr Żyła",
+        
+        "Dimitrij Vasiljev":"Dmitrij Vasiljev",
+        
+        "Anette Sagen": "Anette Sagen",
+        
+        "Kamil Stoch ": "Kamil Stoch",
+        
+        "Irina Avakumova":"Irina Avvakumova",
+        
+        "Katarina Althaus":"Katarina Schmid",
         
     }
 
